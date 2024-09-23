@@ -1,0 +1,705 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header e Menu */
+
+header {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 1.25rem;
+    color: #ffffff;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9375rem;
+}
+
+
+@media (max-width: 48rem) {
+    .hero-section {
+        height: 70dvh;
+    }
+
+    .overlay h1 {
+        font-size: 1.5rem;
+    }
+
+    .site-name {
+        font-size: 1.5rem; /* Reduz o tamanho do nome do doutor */
+    }
+}
+
+
+.site-name {
+    font-size: 2rem; /* Reduz o tamanho do texto em telas pequenas */
+    position: relative; /* Controla a posição do nome */
+    z-index: 15; /* Garante que o nome esteja acima de outros elementos */
+}
+
+.logo-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 9.375rem;
+    height: auto;
+    margin-right: 2.1875rem;
+}
+
+.site-name {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+nav {
+    position: relative;
+}
+
+/* Menu padrão em telas maiores */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1.25rem;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.875rem;
+    padding: 0.625rem 0.9375rem;
+    transition: font-weight 0.3s ease;
+}
+
+nav ul li a:hover {
+    font-weight: bold;
+}
+
+/* Menu Toggle (Hambúrguer) */
+.menu-toggle {
+    display: none;
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: fixed; /* Mantém o botão fixo no topo */
+    right: 1.25rem;
+    top: 1.25rem;
+    z-index: 30; /* Certifica que o botão esteja acima de outros elementos */
+}
+
+
+/* Media Query para telas menores */
+@media (max-width: 48rem) {
+    .top-bar {
+        justify-content: space-between;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 3.75rem; /* Ajusta o topo para que o menu abra corretamente abaixo do botão */
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 0.5rem;
+        width: 15.625rem;
+    }
+    
+    nav ul.menu.open {
+        position: absolute;
+        right: 0;
+        top: 3.75rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 100; /* Certifique-se de que está acima de outros elementos */
+    }
+
+    nav ul li {
+        margin: 0.625rem 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de menu */
+    }
+
+    .menu.open {
+        display: flex; /* Mostra o menu quando o botão é clicado */
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro */
+        padding: 1.25rem;
+        border-radius: 0.5rem;
+        width: 15.625rem; /* Define a largura do menu */
+        position: absolute;
+        top: 5rem; /* Ajusta a posição do menu */
+        right: 0; /* Posiciona o menu ao lado direito */
+        z-index: 20; /* Mantém o menu acima do conteúdo */
+    }
+}
+
+
+
+/* Hero Section */
+
+@media (max-width: 48rem) {
+    .hero-section {
+        height: 60dvh;
+    }
+    .overlay h1 {
+        font-size: 1.8rem;
+    }
+    .overlay button {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.overlay h1 {
+    font-size: 2rem;
+    z-index: 20; /* Mantém o texto visível acima do vídeo */
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+#hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    text-align: center;
+}
+
+.overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.overlay button {
+    padding: 0.625rem 1.25rem;
+    background-color: #00ff3c;
+    color: rgb(0, 0, 0);
+    border: 0.3125rem solid #000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.overlay button:hover {
+    background-color: #16860e;
+}
+
+
+/* Seção Sobre */
+
+@media (max-width: 48rem) {
+    .sobre-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .doctor-photo-section {
+        width: 100%;
+        height: auto;
+    }
+    .sobre-sections {
+        width: 100%;
+    }
+}
+
+
+#sobre {
+    padding: 3.125rem;
+    background-color: rgba(1, 30, 8, 0.847);
+}
+
+#sobre h2 {
+    font-size: 3rem; /* Tamanho do título principal */
+    margin-bottom: 2.5rem;
+    text-align: center; /* Centraliza o título */
+    color: #ffffff;
+}
+
+/* Container para foto e seções */
+.sobre-content {
+    display: flex;
+    flex-direction: column; /* Coloca foto e seções em coluna */
+    align-items: center; /* Centraliza a foto e seções horizontalmente */
+}
+
+/* Foto do Doutor */
+.doctor-photo-section {
+    display: flex;
+    justify-content: center;
+    width: 31.25rem; /* Ajusta a largura do contêiner */
+    height: 31.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.doctor-photo {
+    border-radius: 0.75rem;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 0.25rem 0.5rem rgba /* Adiciona uma sombra sutil à foto */
+}
+
+/* Seções de Texto */
+.sobre-sections {
+    width: 100%; /* Faz com que as seções ocupem toda a largura da página */
+    max-width: 75rem; /* Ajusta a largura máxima para um design mais amplo */
+    margin: 0 auto; /* Centraliza o bloco de texto horizontalmente */
+    padding: 0 1.25rem; /* Adiciona algum espaço interno */
+}
+
+.sobre-section {
+    margin: 2.5rem 0; /* Espaça verticalmente as seções */
+    padding: 1.25rem; /* Adiciona padding dentro das seções */
+    border-radius: 0.5rem; /* Adiciona bordas arredondadas */
+    background-color: rgba(0, 36, 8, 0.11); /* Cor de fundo branca para contraste */
+    box-shadow: 0 0.25rem 0.5rem rgb(0, 0, 0); /* Adiciona uma sombra sutil às seções */
+}
+
+.sobre-section h3 {
+    font-size: 2.5rem; /* Aumenta o tamanho do subtítulo */
+    margin-bottom: 0.9375rem;
+    color: #ffffff; /* Cor do texto dos subtítulos */
+}
+
+.sobre-section p {
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte do parágrafo */
+    line-height: 1.8; /* Aumenta o espaçamento entre linhas */
+    margin-bottom: 1.25rem; /* Adiciona espaçamento entre parágrafos */
+    color: #ffffff; /* Cor do texto dos parágrafos */
+}
+
+
+
+
+/* Seção Atendimento */
+#atendimento {
+    background-color: rgba(1, 30, 8, 0.847); /* Cor de fundo azul */
+    padding: 3.125rem 1.25rem;
+    text-align: center;
+}
+
+.atendimento-container {
+    max-width: 100%;
+    margin: 0 auto;
+    color: #ffffff; /* Cor da letra branca */
+}
+
+.atendimento-container h3 {
+    font-size: 3rem; /* Aumenta o tamanho do título */
+    margin-bottom: 1.25rem;
+    color: #ffffff; /* Cor verde do título */
+}
+
+.atendimento-container p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #ffffff; /* Cor mais clara para o texto */
+}
+
+/* Responsividade */
+@media (max-width: 48rem) {
+    .atendimento-container h3 {
+        font-size: 2.5rem; /* Ajusta o tamanho do título em telas menores */
+    }
+
+    .atendimento-container p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Seção Tratamentos */
+
+@media (max-width: 48rem) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+
+#tratamentos {
+    padding: 3.125rem 1.25rem;
+    background-color: rgba(0, 36, 8, 0.862);
+}
+
+#tratamentos h2 {
+    font-size: 3rem; /* Aumenta o tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 1.875rem; /* Adiciona espaço abaixo do título */
+    font-weight: bold; /* Negrito para destaque */
+    color: #ffffff; /* Cor do título */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+}
+
+.card {
+    position: relative; /* Permite que a película e o conteúdo sejam posicionados dentro do card */
+    height: 43.75rem; /* Ajuste conforme necessário */
+    width: 25rem; /* Ajuste conforme necessário */
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.625rem;
+    overflow: hidden; /* Garante que a película não ultrapasse os limites do card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinha o conteúdo verticalmente no centro */
+    align-items: center; /* Alinha o conteúdo horizontalmente no centro */
+    color: #ffffff; /* Garante que o texto fique visível */
+    padding: 1.25rem; /* Adiciona um espaçamento interno ao conteúdo */
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Película escurecedora */
+.card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Escurece a imagem com 50% de transparência */
+    border-radius: 0.625rem;
+    z-index: 1; /* Fica atrás do conteúdo do card */
+}
+
+.card h3, .card p {
+    position: relative; /* Faz com que o texto esteja sobre a película */
+    z-index: 2; /* Fica acima da película */
+    margin: 0;
+    padding: 0.625rem; /* Adiciona um pouco de espaçamento interno ao texto */
+    text-align: center; /* Alinha o texto ao centro */
+}
+
+.card h3 {
+    font-size: 2rem; /* Ajuste conforme necessário */
+    margin-bottom: 0.625rem;
+}
+
+.card p {
+    font-size: 1.4rem; /* Ajuste conforme necessário */
+}
+
+.card:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Torna a película mais escura quando o card é hoverado */
+}
+
+
+
+
+@media (max-width: 48rem) {
+    #map {
+        height: 18.75rem;
+    }
+}
+
+
+
+#localizacao {
+    padding: 5rem 3.75rem;
+    background-color: rgba(0, 36, 8, 0.863); /* Cor de fundo suave */
+    text-align: center;
+}
+
+#localizacao h2 {
+    font-size: 3rem; /* Tamanho maior para o título */
+    color: #ffffff; /* Cor escura para o título */
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+#localizacao p {
+    font-size: 1.5rem; /* Aumenta o tamanho do texto */
+    color: #ffffff; /* Cor suave para os parágrafos */
+    margin: 0.625rem 0;
+}
+
+.localizacao-content {
+    max-width: 62.5rem; /* Largura máxima da seção */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+#map iframe {
+    border-radius: 0.625rem; /* Adiciona bordas arredondadas */
+    border: none; /* Remove a borda padrão */
+}
+
+
+#map {
+    width: 37.5rem;
+    height: 37.5rem; /* Altura do mapa */
+    background-color: #000000; /* Placeholder em caso de falha do mapa */
+    margin-bottom: 1.875rem;
+    border-radius: 0.625rem; /* Bordas arredondadas para o mapa */
+}
+
+@media (max-width: 48rem) {
+    #localizacao h2 {
+        font-size: 2.25rem; /* Fonte menor para dispositivos móveis */
+    }
+
+    #map {
+        height: 18.75rem; /* Reduz a altura do mapa em telas menores */
+    }
+
+    #localizacao p {
+        font-size: 1.125rem; /* Texto mais compacto em telas pequenas */
+    }
+}
+
+/* Seção Avaliações */
+
+@media (max-width: 48rem) {
+    input[type="text"], textarea {
+        font-size: 1.2rem;
+    }
+    #submit-review {
+        font-size: 1rem;
+    }
+}
+
+
+
+#avaliacoes {
+    padding: 3.125rem 1.25rem;
+    background-color: rgba(0, 36, 8, 0.863);
+    color: rgb(255, 255, 255);
+}
+
+/* Cabeçalho Avaliações */
+#avaliacoes-header {
+    font-size: 3rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1.875rem;
+}
+
+/* Estilos para o campo de nome */
+input[type="text"] {
+    width: 100%;
+    padding: 0.625rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid #000000;
+    font-size: 1.5rem;
+}
+
+/* Estrelas de Avaliação */
+.star-rating {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+}
+
+.star-rating span {
+    margin: 0 0.3125rem;
+    transition: color 0.3s ease;
+}
+
+.star-rating span.active {
+    color: #ffd700;
+}
+
+/* Campo de comentário */
+textarea {
+    width: 100%;
+    height: 6.25rem;
+    padding: 0.625rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid #000000;
+    font-size: 1.4rem;
+    resize: vertical;
+}
+
+/* Botão de enviar avaliação */
+#submit-review {
+    background-color: #00ff3c;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+}
+
+#submit-review:hover {
+    background-color: #16860e;
+}
+
+/* Seção de feedbacks */
+#reviews-section {
+    margin-top: 1.875rem;
+}
+
+/* Título "Feedback dos Usuários" */
+#reviews-section h3 {
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte */
+    color: #ffffff; /* Cor do texto (opcional) */
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+#reviews-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilo para as estrelas no feedback */
+.feedback-stars span {
+    font-size: 1.5rem; /* Tamanho das estrelas */
+    color: #ffd700; /* Cor das estrelas (dourado) */
+}
+
+#reviews-list li {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.9375rem;
+    margin-bottom: 0.9375rem;
+    border-radius: 0.3125rem;
+    font-size: 1.3rem;
+    color: #ffd700;
+    position: relative;
+    width: 100%;
+}
+
+/* Botão de excluir */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.3125rem 0.625rem;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+    margin-left: 0.9375rem;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para as estrelas no feedback */
+.feedback-stars span {
+    font-size: 1.5rem; /* Tamanho das estrelas */
+    color: #ffd700; /* Cor das estrelas (dourado) */
+}
+
+/* Estilo para o tempo */
+.review-time {
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-top: 0.3125rem;
+}
+
+/* Alinhamento do botão de excluir */
+.review-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+}
+
+
+/* Footer */
+footer {
+    background: #000000;
+    color: #fff;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.footer-top img {
+    width: 6.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.footer-bottom {
+    margin-top: 1.25rem;
+}
+
+/* Responsividade */
+@media (max-width: 48rem) {
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.625rem;
+    }
+
+    .hero-section {
+        height: 60dvh;
+    }
+
+    .overlay h1 {
+        font-size: 2rem;
+    }
+
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
