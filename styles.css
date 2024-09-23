@@ -24,29 +24,65 @@ header {
 
 .top-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content:center ;
     align-items: center;
-    padding: 0.9375rem;
+    padding: 0px;
+}
+
+/* Responsividade para telas menores usando media queries */
+@media (max-width: 30rem) {
+    /* Estilos para telas com largura máxima de 48rem (768px) */
+    
+    .top-bar {
+        justify-content: space-between; /* Mantém o logo à esquerda e o menu centralizado */
+    }
+
+    nav ul {
+        flex-direction: column; /* Torna o menu vertical */
+        justify-content: center; /* Centraliza os itens do menu */
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de menu em telas menores */
+    }
+
+    .site-name {
+        font-size: 1rem; /* Reduz o tamanho do texto do site em telas pequenas */
+    }
+
+    .logo {
+        width: 1rem; /* Diminui o tamanho do logo */
+    }
+
+    .hero-section {
+        height: 60dvh; /* Ajusta a altura da seção hero em telas menores */
+    }
+
+    .overlay h1 {
+        font-size: 1rem; /* Diminui o tamanho do título na hero section */
+    }
 }
 
 
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     .hero-section {
         height: 70dvh;
     }
 
     .overlay h1 {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .site-name {
-        font-size: 1.5rem; /* Reduz o tamanho do nome do doutor */
+        font-size: 1rem; /* Reduz o tamanho do nome do doutor */
     }
 }
 
 
 .site-name {
-    font-size: 2rem; /* Reduz o tamanho do texto em telas pequenas */
+    font-size: 1rem; /* Reduz o tamanho do texto em telas pequenas */
     position: relative; /* Controla a posição do nome */
     z-index: 15; /* Garante que o nome esteja acima de outros elementos */
 }
@@ -57,20 +93,22 @@ header {
 }
 
 .logo {
-    width: 9.375rem;
+    width: 5rem;
     height: auto;
-    margin-right: 2.1875rem;
+    margin-right: 1.25rem;
 }
 
 .site-name {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #ffffff;
 }
 
 nav {
-    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Centraliza o menu horizontalmente */
+    align-items: center;
 }
-
 /* Menu padrão em telas maiores */
 nav ul {
     list-style: none;
@@ -79,16 +117,17 @@ nav ul {
     align-items: center;
     padding: 0;
     margin: 0;
+    
 }
 
 nav ul li {
-    margin: 0 1.25rem;
+    margin: 0 0.5rem;
 }
 
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     padding: 0.625rem 0.9375rem;
     transition: font-weight 0.3s ease;
 }
@@ -113,7 +152,7 @@ nav ul li a:hover {
 
 
 /* Media Query para telas menores */
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     .top-bar {
         justify-content: space-between;
     }
@@ -162,7 +201,7 @@ nav ul li a:hover {
 
 /* Hero Section */
 
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     .hero-section {
         height: 60dvh;
     }
@@ -237,7 +276,7 @@ nav ul li a:hover {
 
 /* Seção Sobre */
 
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     .sobre-content {
         flex-direction: column;
         align-items: center;
@@ -258,7 +297,7 @@ nav ul li a:hover {
 }
 
 #sobre h2 {
-    font-size: 3rem; /* Tamanho do título principal */
+    font-size: 2.5rem; /* Tamanho do título principal */
     margin-bottom: 2.5rem;
     text-align: center; /* Centraliza o título */
     color: #ffffff;
@@ -346,7 +385,7 @@ nav ul li a:hover {
 }
 
 /* Responsividade */
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     .atendimento-container h3 {
         font-size: 2.5rem; /* Ajusta o tamanho do título em telas menores */
     }
@@ -359,7 +398,7 @@ nav ul li a:hover {
 
 /* Seção Tratamentos */
 
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     .card-container {
         flex-direction: column;
         align-items: center;
@@ -376,7 +415,7 @@ nav ul li a:hover {
 }
 
 #tratamentos h2 {
-    font-size: 3rem; /* Aumenta o tamanho da fonte */
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte */
     text-align: center; /* Centraliza o texto */
     margin-bottom: 1.875rem; /* Adiciona espaço abaixo do título */
     font-weight: bold; /* Negrito para destaque */
@@ -444,7 +483,7 @@ nav ul li a:hover {
 
 
 
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     #map {
         height: 18.75rem;
     }
@@ -459,7 +498,7 @@ nav ul li a:hover {
 }
 
 #localizacao h2 {
-    font-size: 3rem; /* Tamanho maior para o título */
+    font-size: 2.5rem; /* Tamanho maior para o título */
     color: #ffffff; /* Cor escura para o título */
     margin-bottom: 1.25rem;
     text-align: center;
@@ -490,7 +529,7 @@ nav ul li a:hover {
     border-radius: 0.625rem; /* Bordas arredondadas para o mapa */
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     #localizacao h2 {
         font-size: 2.25rem; /* Fonte menor para dispositivos móveis */
     }
@@ -506,7 +545,7 @@ nav ul li a:hover {
 
 /* Seção Avaliações */
 
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     input[type="text"], textarea {
         font-size: 1.2rem;
     }
@@ -525,7 +564,7 @@ nav ul li a:hover {
 
 /* Cabeçalho Avaliações */
 #avaliacoes-header {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
     margin-bottom: 1.875rem;
@@ -675,7 +714,7 @@ footer {
 }
 
 /* Responsividade */
-@media (max-width: 48rem) {
+@media (max-width: 30rem) {
     .top-bar {
         flex-direction: column;
         align-items: center;

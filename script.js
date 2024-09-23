@@ -1,6 +1,4 @@
-document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.menu').classList.toggle('open');
-});
+
 
 // Função para mostrar e esconder informações detalhadas dos cartões de tratamento
 function showCardInfo(id) {
