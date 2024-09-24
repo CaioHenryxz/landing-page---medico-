@@ -619,7 +619,7 @@ footer {
     /* Ajustar o tamanho do mapa em dispositivos móveis */
     #map {
         width: 100%; /* Faz com que o mapa ocupe toda a largura da tela */
-        height: 12rem; /* Ajusta a altura do mapa para algo mais compacto */
+        height: 5rem; /* Ajusta a altura do mapa para algo mais compacto */
     }
 
     /* Ajustes gerais de padding e margens para telas pequenas */
