@@ -376,13 +376,9 @@ nav ul li a:hover {
     border-radius: 0.625rem; /* Bordas arredondadas para o mapa */
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
     #localizacao h2 {
         font-size: 2.25rem; /* Fonte menor para dispositivos móveis */
-    }
-
-    #map {
-        height: 18.75rem; /* Reduz a altura do mapa em telas menores */
     }
 
     #localizacao p {
@@ -392,7 +388,7 @@ nav ul li a:hover {
 
 /* Seção Avaliações */
 
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
     input[type="text"], textarea {
         font-size: 1.2rem;
     }
@@ -561,7 +557,7 @@ footer {
 }
 
 /* Responsividade */
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
     .top-bar {
         flex-direction: column;
         align-items: center;
@@ -592,9 +588,9 @@ footer {
 
 
 /* Media Queries para dispositivos móveis */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
     .hero-section {
-        height: 100vh; /* Garante que a seção hero ocupe 100% da altura da tela */
+        height: 100dvh; /* Garante que a seção hero ocupe 100% da altura da tela */
     }
 
     /* Reduzir o tamanho da foto do doutor */
@@ -622,7 +618,7 @@ footer {
     /* Ajustar o tamanho do mapa em dispositivos móveis */
     #map {
         width: 100%; /* Faz com que o mapa ocupe toda a largura da tela */
-        height: 300px; /* Ajusta a altura do mapa para algo mais compacto */
+        height: 15rem; /* Ajusta a altura do mapa para algo mais compacto */
     }
 
     /* Ajustes gerais de padding e margens para telas pequenas */
@@ -645,5 +641,12 @@ footer {
 
     nav ul li a {
         font-size: 1.2rem; /* Reduz o tamanho do texto do menu de navegação */
+    }
+}
+
+/* Media query para telas com largura menor que 768px (típico para dispositivos móveis) */
+@media (max-width: 48rem) {
+    nav {
+        display: none; /* Esconde o menu */
     }
 }
