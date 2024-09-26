@@ -651,3 +651,11 @@ footer {
         display: none; /* Esconde o menu */
     }
 }
+
+@media (max-width: 48rem) {
+    #avaliacoes {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+
