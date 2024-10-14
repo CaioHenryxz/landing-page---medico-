@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para carregar feedbacks
     function loadFeedbacks() {
-        fetch('http://localhost:3000/feedbacks')
+        fetch('http://192.168.0.76:3000/feedbacks')
             .then(response => response.json())
             .then(feedbacks => {
                 const reviewList = document.getElementById('reviews-list');
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             timestamp: new Date().toISOString()
         };
 
-        fetch('http://localhost:3000/feedbacks', {
+        fetch('http://192.168.0.76:3000/feedbacks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para deletar feedback
     function deleteFeedback(id) {
-        fetch(`http://localhost:3000/feedbacks/${id}`, {
+        fetch(`http://192.168.0.76:3000/feedbacks/${id}`, {
             method: 'DELETE'
         })
         .then(() => loadFeedbacks()) // Recarrega os feedbacks após exclusão
