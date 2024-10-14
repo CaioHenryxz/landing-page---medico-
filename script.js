@@ -17,24 +17,9 @@ function showCardInfo(id) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const stars = document.querySelectorAll('.star-rating span');
     let currentRating = 0;
 
-    // Função para calcular o tempo decorrido desde a avaliação
-    function calculateTimeDifference(timestamp) {
-        const now = new Date();
-        const diff = Math.abs(now - timestamp); // Diferença em milissegundos
-        const diffHours = Math.floor(diff / (1000 * 60 * 60)); // Diferença em horas
-        const diffDays = Math.floor(diffHours / 24); // Diferença em dias
-
-        if (diffDays >= 1) {
-            return `${diffDays} dia(s) atrás`;
-        } else {
-            return `${diffHours} hora(s) atrás`;
-        }
-    }
-
-    // Função para buscar e exibir feedbacks salvos
+    // Função para carregar feedbacks
     function loadFeedbacks() {
         fetch('http://localhost:3000/feedbacks')
             .then(response => response.json())
@@ -50,6 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     for (let i = 1; i <= 5; i++) {
                         const star = document.createElement('span');
                         star.innerHTML = (i <= feedback.rating) ? '&#9733;' : '&#9734;';
+                        star.setAttribute('data-rating', i); // Atribui rating à estrela
+                        star.addEventListener('click', function() {
+                            currentRating = i; // Atualiza o rating ao clicar na estrela
+                            updateStars(currentRating);
+                        });
                         starContainer.appendChild(star);
                     }
 
@@ -62,27 +52,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     deleteBtn.classList.add('delete-btn');
                     deleteBtn.textContent = 'Excluir';
                     deleteBtn.addEventListener('click', function() {
-                        deleteFeedback(feedback.id);
+                        deleteFeedback(feedback.id); // Chama a função de exclusão
                     });
 
-                    // Inserir o tempo decorrido desde a avaliação
-                    const timeElapsed = document.createElement('div');
-                    timeElapsed.classList.add('review-time');
-                    timeElapsed.textContent = calculateTimeDifference(new Date(feedback.timestamp));
-
-                    const newReviewContainer = document.createElement('div');
-                    newReviewContainer.classList.add('review-container');
-                    newReviewContainer.appendChild(newReview);
-                    newReviewContainer.appendChild(deleteBtn);
-                    newReviewContainer.appendChild(timeElapsed); // Adiciona o tempo decorrido
-
-                    reviewList.appendChild(newReviewContainer);
+                    newReview.appendChild(deleteBtn); // Adiciona o botão à nova avaliação
+                    reviewList.appendChild(newReview);
                 });
             })
             .catch(error => console.error('Erro ao carregar feedbacks:', error));
     }
 
-    // Função para enviar novo feedback
+    // Envio de novo feedback
     document.getElementById('submit-review').addEventListener('click', function() {
         const comment = document.getElementById('comment').value;
         const userName = document.getElementById('user-name').value;
@@ -96,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             userName: userName,
             comment: comment,
             rating: currentRating,
-            timestamp: new Date().toISOString() // Adiciona timestamp ao feedback
+            timestamp: new Date().toISOString()
         };
 
         fetch('http://localhost:3000/feedbacks', {
@@ -106,30 +86,19 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify(newFeedback)
         })
-            .then(response => response.json())
-            .then(() => {
-                loadFeedbacks(); // Recarrega a lista de feedbacks
-                document.getElementById('comment').value = '';
-                document.getElementById('user-name').value = '';
-                currentRating = 0;
-                updateStars(currentRating);
-            })
-            .catch(error => console.error('Erro ao enviar feedback:', error));
+        .then(response => response.json())
+        .then(() => {
+            loadFeedbacks(); // Recarrega a lista de feedbacks
+            document.getElementById('comment').value = '';
+            document.getElementById('user-name').value = '';
+            currentRating = 0;
+            updateStars(currentRating);
+        })
+        .catch(error => console.error('Erro ao enviar feedback:', error));
     });
 
-    // Função para deletar feedback
-    function deleteFeedback(id) {
-        fetch(`http://localhost:3000/feedbacks/${id}`, {
-            method: 'DELETE'
-        })
-            .then(() => loadFeedbacks())
-            .catch(error => console.error('Erro ao deletar feedback:', error));
-    }
-
-    // Carrega os feedbacks ao iniciar
-    loadFeedbacks();
-
-    // Código de interação das estrelas e outras funcionalidades
+    // Função para atualizar estrelas
+    const stars = document.querySelectorAll('.star-rating span');
     stars.forEach(star => {
         star.addEventListener('click', function() {
             currentRating = parseInt(this.getAttribute('data-rating'));
@@ -140,11 +109,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateStars(rating) {
         stars.forEach(star => {
             const starRating = parseInt(star.getAttribute('data-rating'));
-            if (starRating <= rating) {
-                star.classList.add('active');
-            } else {
-                star.classList.remove('active');
-            }
+            star.innerHTML = (starRating <= rating) ? '&#9733;' : '&#9734;'; // Atualiza o conteúdo da estrela
+            star.classList.toggle('active', starRating <= rating); // Adiciona ou remove classe ativa
         });
     }
+
+    // Função para deletar feedback
+    function deleteFeedback(id) {
+        fetch(`http://localhost:3000/feedbacks/${id}`, {
+            method: 'DELETE'
+        })
+        .then(() => loadFeedbacks()) // Recarrega os feedbacks após exclusão
+        .catch(error => console.error('Erro ao deletar feedback:', error));
+    }
+
+    // Carrega os feedbacks ao iniciar
+    loadFeedbacks();
 });
