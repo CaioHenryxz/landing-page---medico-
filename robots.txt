@@ -1,3 +1,2 @@
 User-agent: *
-Allow: /
-Sitemap: https://wilfredofinckjr.com.br/sitemap.xml
+Disallow: /
