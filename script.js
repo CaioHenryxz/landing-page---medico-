@@ -15,3 +15,12 @@ function showCardInfo(id) {
         cardInfo.style.display = 'block';
     }
 }
+
+let indiceAtual = 0;
+const artigos = document.querySelectorAll(".artigo");
+
+function trocarArtigo(direcao) {
+  artigos[indiceAtual].classList.remove("active");
+  indiceAtual = (indiceAtual + direcao + artigos.length) % artigos.length;
+  artigos[indiceAtual].classList.add("active");
+}
