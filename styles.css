@@ -412,7 +412,7 @@ nav ul li a:hover {
 /* Título centralizado no topo */
 .titulo-principal {
   color: #ffffff; /* cor clara */
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 40px;
   text-align: center;
@@ -447,7 +447,7 @@ nav ul li a:hover {
 
 
 .titulo-artigo {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 12px;
   color: #ffffff;  /* cor clara para contraste */
   font-weight: 700px;
